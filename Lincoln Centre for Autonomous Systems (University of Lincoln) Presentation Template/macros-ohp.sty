@@ -1,0 +1,220 @@
+\usepackage{etex} %used to solve the "Beamer and No room for new \dimen" problem
+\usepackage{xyling}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{relsize}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\makeatletter
+\usepackage[english]{babel}
+\makeatother
+\usepackage{graphicx}
+% \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]} \let\endchangemargin=\endlist
+\usepackage{arydshln,slashbox,enumerate,amsmath}
+\usepackage{framed,pifont}
+\usepackage{textcomp}
+\usepackage{geometry}
+\usepackage[absolute,overlay]{textpos}
+% \usepackage{shadowtext}
+
+%\usepackage[texcoord,grid,gridunit=mm,gridcolor=red!10,subgridcolor=green!10]
+%{eso-pic}
+
+\usepackage[tikz]{bclogo}
+% \newenvironment{hilit}[2][\bclampe]{\begin{bclogo}[couleur=blue!30,arrondi=0.1,logo=#1,ombre=true]{\smaller[2] #2}\smaller[2]}{\end{bclogo}}
+
+\definecolor{uolcolor}{HTML}{002e5f}
+\definecolor{uolcolor-red}{HTML}{d1081a}
+\definecolor{uolcolor-green}{HTML}{08a108}
+
+% \mode<presentation>
+% {
+
+% \usetheme{Madrid}
+\setbeamerfont{structure}{size=\larger}
+\setbeamerfont{title}{size=\LARGE}
+\setbeamerfont{frametitle}{size=\Large}
+\setbeamerfont{author in head/foot}{size=\scriptsize}
+\setbeamerfont{date in head/foot}{size=\scriptsize}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamerfont{block body}{size=\small}
+\setbeamercolor*{normal text}{fg=black}
+\setbeamercolor*{author in head/foot}{fg=white!80!black}
+\setbeamercolor*{date in head/foot}{fg=white}
+\setbeamercolor*{date}{fg=white!60!black}
+\setbeamercolor*{frametitle}{fg=uolcolor}
+\setbeamercolor*{framesubtitle}{fg=white!20!black}
+\setbeamercolor*{structure}{fg=black}
+\setbeamercolor*{title}{fg=white}
+\setbeamercolor*{author}{fg=white!80!black}
+\setbeamercolor*{subtitle}{fg=black}
+\setbeamercolor*{block title}{bg=uolcolor, fg=white}
+\setbeamercolor*{itemize item}{fg=uolcolor}
+\setbeamercolor*{block body}{bg=white!90!black, fg=black}
+\setbeamercolor*{block title alerted}{bg=uolcolor-red, fg=white}
+\setbeamercolor*{block body alerted}{bg=white!80!uolcolor-red, fg=black}
+\setbeamercolor*{block title example}{bg=uolcolor-green, fg=white}
+\setbeamercolor*{block body example}{bg=white!80!uolcolor-green, fg=black}
+\setbeamercolor*{navigation symbols}{bg=white, fg=white}
+\setbeamercolor*{section in head}{bg=white!80!black, fg=uolcolor}
+% \setbeamercolor*{itemize item}{fg=red}
+% \setbeamercolor*{enumerate item}{fg=red, bg=black}
+\setbeamercolor*{item projected}{fg=white, bg=uolcolor}
+\setbeamercolor*{section in toc}{fg=uolcolor!90!black}
+% \setbeamercolor*{date}{fg=white}
+\setbeamersize{text margin left=0.8cm}
+\setbeamersize{text margin right=0.8cm}
+% \shadowcolor{black}
+% }
+
+% \usepackage{natbib}
+% \beamertemplatenavigationsymbolsempty
+% \newcommand{\attribution}[1]{\vfill\vspace*{-1.2cm}\begin{scriptsize}\smaller\textbf{Source(s):}
+    % #1\end{scriptsize}}
+
+% 
+\setbeamertemplate{enumerate item}[ball]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setbeamertemplate{section in toc shaded}[default][50]
+
+% \setbeamertemplate{headline}[my header]
+\setbeamertemplate{title page}{
+	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{imgs/uol_lcas_background.jpg}};
+
+	\begin{flushleft}
+		\begin{textblock*}{90mm}(35mm,38mm)
+	            {
+    	            \usebeamercolor[fg]{title}
+    	            \usebeamerfont{title}
+    				% \shadowtext{
+    				    \inserttitle
+    				% }
+				}
+		\end{textblock*}
+    \end{flushleft}
+	\begin{flushleft}
+		\begin{textblock*}{90mm}(35mm,62mm)
+	            {
+    	            \usebeamercolor[fg]{author}
+    				\insertauthor\\
+    				\footnotesize\insertinstitute
+				}
+		\end{textblock*}
+	\end{flushleft}	
+	\begin{centering}
+		\begin{textblock*}{100mm}(10mm,10mm)
+				{   
+				    \usebeamerfont{date}
+    	            \usebeamercolor[fg]{date}
+				    \textit{\insertdate}
+				}
+		\end{textblock*}
+	\end{centering}
+% 	\begin{textblock*}{30mm}(0.5mm,63.5mm)
+%         {
+%             \includegraphics[width=\linewidth]{imgs/lcas_logo_150dpi_white_semi90.png}
+% 		}
+% 	\end{textblock*}
+		
+}
+
+\setbeamertemplate{background}{
+	\tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt] at (current page.center){\includegraphics[width=\paperwidth,height=\paperheight]{imgs/uol_footline.jpg}};
+
+}
+
+\setbeamertemplate{background canvas}{
+	{
+        \setbeamertemplate{logo}{} % to remove logo from the frame background (it's already in footline)
+    }
+}
+
+\setbeamertemplate{footline}
+{
+        \leavevmode%
+    % \hbox{%
+        \begin{beamercolorbox}[wd=.11\paperwidth,ht=1ex,dp=1ex,center]{author in head/foot}%
+                \hspace{-1.4cm}
+                \includegraphics[width=0.126\linewidth]{imgs/lcas_logo_150dpi_white.png}
+                \vspace{-0.838cm}
+        \end{beamercolorbox}% 
+        \hspace{0.22\paperwidth}
+        \begin{beamercolorbox}[wd=.53\paperwidth,ht=5.5ex,dp=4.5ex,center]{author in head/foot}%
+            {
+                \usebeamerfont{author in head/foot}\insertshortauthor
+                \hspace*{3ex} \insertshortdate{}
+            }
+        \end{beamercolorbox}%
+        % \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+        %     \usebeamerfont{title in head/foot}\insertshorttitle
+        % \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.14\paperwidth,ht=5.5ex,dp=4.5ex,right]{date in head/foot}%
+            {
+                \usebeamerfont{date in head/foot}
+                \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+            }
+        \end{beamercolorbox}
+        
+    % }%
+        % \vskip0pt%
+}
+\setbeamertemplate{headline}
+{
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2ex,dp=0.8ex,left]{section in head}
+    {
+        \insertsectionhead
+    }
+    \end{beamercolorbox}
+}
+% \setbeamertemplate{section in head shaded}[default][20]
+% \setbeamertemplate{page number in foot}[framenumber]{}
+    
+% \setbeamertemplate{frametitle}{
+% \begin{flushleft}
+% 	\begin{textblock*}{120mm}(5mm,5mm)
+% 	    \usebeamercolor[fg]{frametitle}
+% 		\insertframetitle
+% 	\end{textblock*}
+% \end{flushleft}
+% }
+
+% \setbeamertemplate{frame}{
+% }
+
+
+
+% \setbeamertemplate{part page}{
+%     \usebeamercolor{normal text}
+%     \insertpart
+% }
+% \setbeamertemplate{section page}{
+%     \usebeamercolor{normal text}
+%     \insertsection
+% }
+% \setbeamertemplate{subsection page}{
+%     \usebeamercolor{normal text}
+%     \insertsubsection
+% }
+
+    
+    
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \fancyhf{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{10pt}
+% \fancyfoot[L]{\thepage}
+
+% \chead{
+% \tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,anchor=north] at (current page.north){\includegraphics[width=\paperwidth]{imgs/VRS-Presentation-header.png}};
+% }
+
+% \cfoot{
+% \tikz[remember picture,overlay] \node[opacity=1,inner sep=0pt,anchor=south] at (current page.south){\includegraphics[width=\paperwidth]{imgs/VRS-Presentation-footer.png}};
+% }
+% \lfoot{\insertframenumber}
